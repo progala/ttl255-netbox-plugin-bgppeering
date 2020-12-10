@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ttl255-netbox-plugin-bgppeering"
+version = "0.1.0"
+description = "NetBox Plugins - adds BGP Peering model"
+authors = ["Przemek Rogala <pr@ttl255.com>"]
+license = "Apache-2.0"
+packages = [
+    { include = "netbox_bgppeering" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7 || ^3.8"
+
+[tool.poetry.dev-dependencies]
+bandit = "^1.6.3"
+black = "^20.8b1"
+invoke = "^1.4.1"
+pylint = "^2.6.0"
+pylint-django = "^2.3.0"
+pydocstyle = "^5.1.1"
+yamllint = "^1.25.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
