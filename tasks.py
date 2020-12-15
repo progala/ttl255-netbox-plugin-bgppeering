@@ -14,6 +14,8 @@ limitations under the License.
 (c) 2020 Przemek Rogala
 
 Modifications to the name of the plugin. Changing few hardcoded strings to vars.
+
+2020-12-15 Added `refresh` task
 """
 
 import os
@@ -116,6 +118,20 @@ def destroy(context, netbox_ver=NETBOX_VER, python_ver=PYTHON_VER):
         f"docker volume rm -f {BUILD_NAME}_pgdata_{BUILD_NAME}",
         env={"NETBOX_VER": netbox_ver, "PYTHON_VER": python_ver},
     )
+
+
+@task
+def refresh(context, netbox_ver=NETBOX_VER, python_ver=PYTHON_VER):
+    """Builds package, then stops and starts NetBox and its dependencies.
+
+    Args:
+        context (obj): Used to run specific commands
+        netbox_ver (str): NetBox version to use to build the container
+        python_ver (str): Will use the Python version docker image to build from
+    """
+    build(context, netbox_ver, python_ver)
+    stop(context, netbox_ver, python_ver)
+    start(context, netbox_ver, python_ver)
 
 
 # ------------------------------------------------------------------------------
