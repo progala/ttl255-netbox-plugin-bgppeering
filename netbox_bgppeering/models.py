@@ -4,6 +4,8 @@ from dcim.fields import ASNField
 from extras.models import ChangeLoggedModel
 from ipam.fields import IPAddressField
 
+from utilities.querysets import RestrictedQuerySet
+
 
 class BgpPeering(ChangeLoggedModel):
     site = models.ForeignKey(
@@ -16,3 +18,5 @@ class BgpPeering(ChangeLoggedModel):
     remote_as = ASNField(help_text="32-bit ASN used by peer")
     peer_name = models.CharField(max_length=64, blank=True)
     description = models.CharField(max_length=200, blank=True)
+
+    objects = RestrictedQuerySet.as_manager()
