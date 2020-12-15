@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load helpers %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>BGP Peering</strong>
+            </div>
+            <table class="table table-hover panel-body attr-table">
+                <tr>
+                    <td>Site</td>
+                    <td>
+                        {% if bgppeering.site %}
+                            <a href="{% url 'dcim:site' slug=bgppeering.site.slug %}">{{ bgppeering.site }}</a>
+                        {% else %}
+                            <span class="text-muted">None</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Device</td>
+                    <td>
+                        <a href="{% url 'dcim:device' pk=bgppeering.device.pk %}">{{ bgppeering.device }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Local BGP AS</td>
+                    <td>{{ bgppeering.local_as }}</td>
+                </tr>
+                <tr>
+                    <td>Local peering IP address</td>
+                    <td>
+                        <a href="{% url 'ipam:ipaddress' pk=bgppeering.local_ip.pk %}">{{ bgppeering.local_ip }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Remote BGP AS</td>
+                    <td>{{ bgppeering.remote_as }}</td>
+                </tr>
+                <tr>
+                    <td>Remote peering IP address</td>
+                    <td>{{ bgppeering.remote_ip }}</td>
+                </tr>
+                <tr>
+                    <td>Peer name</td>
+                    <td>{{ bgppeering.peer_name|placeholder }}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{ bgppeering.description|placeholder }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
