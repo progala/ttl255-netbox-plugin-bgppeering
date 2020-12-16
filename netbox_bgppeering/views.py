@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, render
 
-from utilities.views import ObjectView
+from utilities.views import ObjectView, ObjectListView
 
 from .models import BgpPeering
+from .tables import BgpPeeringTable
 
 
 class BgpPeeringView(ObjectView):
@@ -21,3 +22,11 @@ class BgpPeeringView(ObjectView):
                 "bgppeering": bgppeering_obj,
             },
         )
+
+
+class BgpPeeringListView(ObjectListView):
+    """View for listing all existing BGP Peerings."""
+
+    queryset = BgpPeering.objects.all()
+    table = BgpPeeringTable
+    template_name = "netbox_bgppeering/bgppeering_list.html"
