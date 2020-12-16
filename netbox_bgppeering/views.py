@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 
-from utilities.views import ObjectView, ObjectListView
+from utilities.views import ObjectView, ObjectEditView, ObjectListView
 
+from .forms import BgpPeeringForm
 from .models import BgpPeering
 from .tables import BgpPeeringTable
 
@@ -30,3 +31,13 @@ class BgpPeeringListView(ObjectListView):
     queryset = BgpPeering.objects.all()
     table = BgpPeeringTable
     template_name = "netbox_bgppeering/bgppeering_list.html"
+
+
+class BgpPeeringCreateView(ObjectEditView):
+    """View for creating a new BgpPeering instance."""
+
+    model = BgpPeering
+    queryset = BgpPeering.objects.all()
+    model_form = BgpPeeringForm
+    template_name = "netbox_bgppeering/bgppeering_edit.html"
+    default_return_url = "plugins:netbox_bgppeering:bgppeering_add"
