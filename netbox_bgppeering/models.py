@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from dcim.fields import ASNField
 from extras.models import ChangeLoggedModel
@@ -18,5 +19,9 @@ class BgpPeering(ChangeLoggedModel):
     remote_as = ASNField(help_text="32-bit ASN used by peer")
     peer_name = models.CharField(max_length=64, blank=True)
     description = models.CharField(max_length=200, blank=True)
+
+    def get_absolute_url(self):
+        """Provide absolute URL to a Bgp Peering object."""
+        return reverse("plugins:netbox_bgppeering:bgppeering", kwargs={"pk": self.pk})
 
     objects = RestrictedQuerySet.as_manager()
