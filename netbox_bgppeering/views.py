@@ -36,7 +36,6 @@ class BgpPeeringListView(ObjectListView):
 class BgpPeeringCreateView(ObjectEditView):
     """View for creating a new BgpPeering instance."""
 
-    model = BgpPeering
     queryset = BgpPeering.objects.all()
     model_form = BgpPeeringForm
     template_name = "netbox_bgppeering/bgppeering_edit.html"
