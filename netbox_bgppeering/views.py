@@ -39,4 +39,3 @@ class BgpPeeringCreateView(ObjectEditView):
     queryset = BgpPeering.objects.all()
     model_form = BgpPeeringForm
     template_name = "netbox_bgppeering/bgppeering_edit.html"
-    default_return_url = "plugins:netbox_bgppeering:bgppeering_add"
