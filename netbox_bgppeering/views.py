@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import View
+from django_tables2 import LazyPaginator, RequestConfig, SingleTableView
 
-from utilities.views import ObjectEditView, ObjectListView
+from utilities.views import ObjectEditView
 
 from .forms import BgpPeeringForm
 from .models import BgpPeering
@@ -26,12 +27,19 @@ class BgpPeeringView(View):
         )
 
 
-class BgpPeeringListView(ObjectListView):
+class BgpPeeringListView(View):
     """View for listing all existing BGP Peerings."""
 
     queryset = BgpPeering.objects.all()
-    table = BgpPeeringTable
-    template_name = "netbox_bgppeering/bgppeering_list.html"
+
+    def get(self, request):
+        """Get request."""
+        table = BgpPeeringTable(self.queryset)
+        RequestConfig(request, paginate={"per_page": 25}).configure(table)
+
+        return render(
+            request, "netbox_bgppeering/bgppeering_list.html", {"table": table}
+        )
 
 
 class BgpPeeringCreateView(ObjectEditView):
