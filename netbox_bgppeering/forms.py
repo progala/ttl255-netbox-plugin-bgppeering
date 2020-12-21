@@ -1,9 +1,11 @@
 from django import forms
 
+from utilities.forms import BootstrapMixin
+
 from .models import BgpPeering
 
 
-class BgpPeeringForm(forms.ModelForm):
+class BgpPeeringForm(BootstrapMixin, forms.ModelForm):
     """Form for creating a new BgpPeering object."""
 
     class Meta:
