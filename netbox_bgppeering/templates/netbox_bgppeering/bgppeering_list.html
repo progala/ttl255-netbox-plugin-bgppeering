@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}BGP Peerings{% endblock %}</h1>
+<div class="row">
+    <div class="col-md-9">
+        {% include 'utilities/obj_table.html' %}
+    </div>
+</div>
+{% endblock %}

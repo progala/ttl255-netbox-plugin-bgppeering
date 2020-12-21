@@ -1,15 +1,11 @@
 from django.http import HttpResponse
 from django.urls import path
 
-from .views import BgpPeeringView
-
-
-def dummy_view(request):
-    html = "<html><body>BGP Peering plugin.</body></html>"
-    return HttpResponse(html)
+from .views import BgpPeeringCreateView, BgpPeeringView, BgpPeeringListView
 
 
 urlpatterns = [
-    path("", dummy_view, name="bgppeering_list"),
+    path("", BgpPeeringListView.as_view(), name="bgppeering_list"),
     path("<int:pk>/", BgpPeeringView.as_view(), name="bgppeering"),
+    path("add/", BgpPeeringCreateView.as_view(), name="bgppeering_add"),
 ]
