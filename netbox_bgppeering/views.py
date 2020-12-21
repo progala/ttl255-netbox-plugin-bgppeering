@@ -1,13 +1,14 @@
 from django.shortcuts import get_object_or_404, render
+from django.views import View
 
-from utilities.views import ObjectView, ObjectEditView, ObjectListView
+from utilities.views import ObjectEditView, ObjectListView
 
 from .forms import BgpPeeringForm
 from .models import BgpPeering
 from .tables import BgpPeeringTable
 
 
-class BgpPeeringView(ObjectView):
+class BgpPeeringView(View):
     """Display BGP Peering details"""
 
     queryset = BgpPeering.objects.all()
