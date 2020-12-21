@@ -1,11 +1,10 @@
 from django.shortcuts import get_object_or_404, render
-
-from utilities.views import ObjectView
+from django.views import View
 
 from .models import BgpPeering
 
 
-class BgpPeeringView(ObjectView):
+class BgpPeeringView(View):
     """Display BGP Peering details"""
 
     queryset = BgpPeering.objects.all()
