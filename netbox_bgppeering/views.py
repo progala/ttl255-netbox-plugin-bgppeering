@@ -1,8 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import View
+from django.views.generic.edit import CreateView
 from django_tables2 import LazyPaginator, RequestConfig, SingleTableView
-
-from utilities.views import ObjectEditView
 
 from .forms import BgpPeeringForm
 from .models import BgpPeering
@@ -42,9 +41,8 @@ class BgpPeeringListView(View):
         )
 
 
-class BgpPeeringCreateView(ObjectEditView):
+class BgpPeeringCreateView(CreateView):
     """View for creating a new BgpPeering instance."""
 
-    queryset = BgpPeering.objects.all()
-    model_form = BgpPeeringForm
+    form_class = BgpPeeringForm
     template_name = "netbox_bgppeering/bgppeering_edit.html"
