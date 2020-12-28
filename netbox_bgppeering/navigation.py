@@ -1,13 +1,8 @@
 from extras.plugins import PluginMenuButton, PluginMenuItem
 from utilities.choices import ButtonColorChoices
 
-from .release import NETBOX_RELEASE_CURRENT, NETBOX_RELEASE_210
+from .icon_classes import icon_classes
 
-
-if NETBOX_RELEASE_CURRENT >= NETBOX_RELEASE_210:
-    icon_class_plus = "mdi mdi-plus-thick"
-else:
-    icon_class_plus = "fa fa-plus"
 
 menu_items = (
     PluginMenuItem(
@@ -17,7 +12,7 @@ menu_items = (
             PluginMenuButton(
                 link="plugins:netbox_bgppeering:bgppeering_add",
                 title="Add",
-                icon_class=icon_class_plus,
+                icon_class=icon_classes.get("plus"),
                 color=ButtonColorChoices.GREEN,
             ),
         ),
