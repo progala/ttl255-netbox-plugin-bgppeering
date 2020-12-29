@@ -3,11 +3,11 @@ from django.views import View
 from django.views.generic.edit import CreateView
 from django_tables2 import LazyPaginator, RequestConfig, SingleTableView
 
+from .icon_classes import icon_classes
 from .filters import BgpPeeringFilter
 from .forms import BgpPeeringForm, BgpPeeringFilterForm
 from .models import BgpPeering
 from .tables import BgpPeeringTable
-from .icon_classes import icon_classes
 
 
 class BgpPeeringView(View):
