@@ -20,6 +20,9 @@ class BgpPeering(ChangeLoggedModel):
     peer_name = models.CharField(max_length=64, blank=True)
     description = models.CharField(max_length=200, blank=True)
 
+    def __str__(self):
+        return f"{self.device}:AS{self.remote_as}"
+
     def get_absolute_url(self):
         """Provide absolute URL to a Bgp Peering object."""
         return reverse("plugins:netbox_bgppeering:bgppeering", kwargs={"pk": self.pk})
