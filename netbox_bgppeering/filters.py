@@ -1,6 +1,5 @@
 import django_filters
 from django.db.models import Q
-import netaddr
 
 from dcim.models import Device, Site
 
