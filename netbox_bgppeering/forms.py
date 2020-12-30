@@ -57,14 +57,14 @@ class BgpPeeringFilterForm(BootstrapMixin, forms.ModelForm):
 
     local_as = forms.IntegerField(
         required=False,
+        label="Local ASN",
     )
 
-    remote_as = forms.IntegerField(
-        required=False,
-    )
+    remote_as = forms.IntegerField(required=False, label="Remote ASN")
 
     peer_name = forms.CharField(
         required=False,
+        label="Peer Name",
     )
 
     class Meta:
