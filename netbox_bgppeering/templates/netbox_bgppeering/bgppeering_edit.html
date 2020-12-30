@@ -6,7 +6,13 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h3>
-                {% block title %}Add a new BGP Peering{% endblock %}
+                {% block title %}
+                {% if object.pk %}
+                    Editing BGP Peering - {{ object }}
+                {% else %}
+                    Add a new BGP Peering
+                {% endif %}
+                {% endblock %}
             </h3>
             <div class="panel panel-default">
                 <div class="panel-heading"><strong>BGP Peering</strong></div>
