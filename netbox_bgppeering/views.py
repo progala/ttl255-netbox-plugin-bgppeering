@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views import View
@@ -11,8 +12,10 @@ from .models import BgpPeering
 from .tables import BgpPeeringTable
 
 
-class BgpPeeringView(View):
+class BgpPeeringView(PermissionRequiredMixin, View):
     """Display BGP Peering details"""
+
+    permission_required = "netbox_bgppeering.view_bgppeering"
 
     queryset = BgpPeering.objects.all()
 
@@ -30,8 +33,10 @@ class BgpPeeringView(View):
         )
 
 
-class BgpPeeringListView(View):
+class BgpPeeringListView(PermissionRequiredMixin, View):
     """View for listing all existing BGP Peerings."""
+
+    permission_required = "netbox_bgppeering.view_bgppeering"
 
     queryset = BgpPeering.objects.all()
     filterset = BgpPeeringFilter
@@ -56,23 +61,29 @@ class BgpPeeringListView(View):
         )
 
 
-class BgpPeeringCreateView(CreateView):
+class BgpPeeringCreateView(PermissionRequiredMixin, CreateView):
     """View for creating a new BgpPeering instance."""
+
+    permission_required = "netbox_bgppeering.add_bgppeering"
 
     form_class = BgpPeeringForm
     template_name = "netbox_bgppeering/bgppeering_edit.html"
 
 
-class BgpPeeringDeleteView(DeleteView):
+class BgpPeeringDeleteView(PermissionRequiredMixin, DeleteView):
     """View for deleting a BgpPeering instance."""
+
+    permission_required = "netbox_bgppeering.delete_bgppeering"
 
     model = BgpPeering
     success_url = reverse_lazy("plugins:netbox_bgppeering:bgppeering_list")
     template_name = "netbox_bgppeering/bgppeering_delete.html"
 
 
-class BgpPeeringEditView(UpdateView):
+class BgpPeeringEditView(PermissionRequiredMixin, UpdateView):
     """View for editing a BgpPeering instance."""
+
+    permission_required = "netbox_bgppeering.change_bgppeering"
 
     model = BgpPeering
     form_class = BgpPeeringForm
