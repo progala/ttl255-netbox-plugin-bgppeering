@@ -4,6 +4,7 @@ from django.urls import path
 from .views import (
     BgpPeeringCreateView,
     BgpPeeringDeleteView,
+    BgpPeeringEditView,
     BgpPeeringListView,
     BgpPeeringView,
 )
@@ -14,4 +15,5 @@ urlpatterns = [
     path("<int:pk>/", BgpPeeringView.as_view(), name="bgppeering"),
     path("add/", BgpPeeringCreateView.as_view(), name="bgppeering_add"),
     path("<int:pk>/delete/", BgpPeeringDeleteView.as_view(), name="bgppeering_delete"),
+    path("<int:pk>/edit/", BgpPeeringEditView.as_view(), name="bgppeering_edit"),
 ]
