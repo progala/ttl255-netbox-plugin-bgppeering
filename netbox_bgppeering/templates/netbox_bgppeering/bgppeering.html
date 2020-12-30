@@ -3,14 +3,14 @@
 
 {% block header %}
 <div class="row noprint">
-    <div class="col-sm-8">
+    <div class="col-sm-7">
         <ol class="breadcrumb">
             <li><a href="{% url 'plugins:netbox_bgppeering:bgppeering_list' %}">BGP Peerings</a></li>
             <li>{{ bgppeering }}</li>
         </ol>
     </div>
 </div>
-<div class="col-sm-8">
+<div class="col-sm-7">
     <div class="pull-right noprint">
         {% if perms.netbox_bgppeering.change_bgppeering %}
         <a href="{% url 'plugins:netbox_bgppeering:bgppeering_edit' pk=bgppeering.pk %}" class="btn btn-warning">
@@ -24,7 +24,7 @@
         {% endif %}
     </div>
 </div>
-<div class="col-sm-8">
+<div class="col-sm-7">
     <h1>{% block title %}{{ bgppeering }}{% endblock %}</h1>
     <p>
         <small class="text-muted">Created {{ bgppeering.created }} &middot; Updated <span
@@ -37,7 +37,7 @@
 
 {% block content %}
 <div class="row">
-    <div class="pull-left col-sm-8">
+    <div class="pull-left col-sm-7">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <strong>BGP Peering</strong>
