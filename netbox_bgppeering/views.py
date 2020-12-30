@@ -40,7 +40,7 @@ class BgpPeeringListView(View):
     def get(self, request):
         """Get request."""
 
-        self.queryset = self.filterset(request.GET, self.queryset).qs
+        self.queryset = self.filterset(request.GET, self.queryset).qs.order_by("pk")
 
         table = BgpPeeringTable(self.queryset)
         RequestConfig(request, paginate={"per_page": 25}).configure(table)
