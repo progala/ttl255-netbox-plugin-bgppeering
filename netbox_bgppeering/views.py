@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django_tables2 import LazyPaginator, RequestConfig, SingleTableView
 
 from .icon_classes import icon_classes
@@ -24,6 +25,7 @@ class BgpPeeringView(View):
             "netbox_bgppeering/bgppeering.html",
             {
                 "bgppeering": bgppeering_obj,
+                "icon_classes": icon_classes,
             },
         )
 
@@ -59,3 +61,11 @@ class BgpPeeringCreateView(CreateView):
 
     form_class = BgpPeeringForm
     template_name = "netbox_bgppeering/bgppeering_edit.html"
+
+
+class BgpPeeringDeleteView(DeleteView):
+    """View for deleting a BgpPeering instance"""
+
+    model = BgpPeering
+    success_url = reverse_lazy("plugins:netbox_bgppeering:bgppeering_list")
+    template_name = "netbox_bgppeering/bgppeering_delete.html"
