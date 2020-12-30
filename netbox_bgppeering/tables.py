@@ -1,12 +1,11 @@
 import django_tables2 as tables
-from utilities.tables import BaseTable, ToggleColumn
+from utilities.tables import BaseTable
 from .models import BgpPeering
 
 
 class BgpPeeringTable(BaseTable):
     """Table for displaying BGP Peering objects."""
 
-    pk = ToggleColumn()
     id = tables.LinkColumn()
     site = tables.LinkColumn()
     device = tables.LinkColumn()
@@ -15,7 +14,6 @@ class BgpPeeringTable(BaseTable):
     class Meta(BaseTable.Meta):
         model = BgpPeering
         fields = (
-            "pk",
             "id",
             "site",
             "device",
