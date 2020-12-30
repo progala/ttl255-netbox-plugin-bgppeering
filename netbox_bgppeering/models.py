@@ -21,7 +21,7 @@ class BgpPeering(ChangeLoggedModel):
     description = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-        return f"{self.device}:AS{self.remote_as}"
+        return f"{self.device}:{self.remote_as}"
 
     def get_absolute_url(self):
         """Provide absolute URL to a Bgp Peering object."""
