@@ -14,6 +14,7 @@ menu_items = (
                 title="Add",
                 icon_class=icon_classes.get("plus"),
                 color=ButtonColorChoices.GREEN,
+                permissions=["netbox_bgppeering.add_bgppeering"],
             ),
         ),
     ),
