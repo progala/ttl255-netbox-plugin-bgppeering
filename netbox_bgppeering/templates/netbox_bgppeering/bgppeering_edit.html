@@ -37,9 +37,13 @@
     </div>
     <div class="row">
         <div class="col-md-6 col-md-offset-3 text-right">
-            {% block buttons %}
-            <button type="submit" name="_create" class="btn btn-primary">Create</button>
-            {% endblock %}
+            {% if object.pk %}
+                <button type="submit" name="_update" class="btn btn-primary">Update</button>
+                <a href="{% url 'plugins:netbox_bgppeering:bgppeering' pk=bgppeering.pk %}" class="btn btn-default">Cancel</a>
+            {% else %}
+                <button type="submit" name="_create" class="btn btn-primary">Create</button>
+                <a href="{% url 'plugins:netbox_bgppeering:bgppeering_list' %}" class="btn btn-default">Cancel</a>
+            {% endif %}
         </div>
     </div>
 </form>
