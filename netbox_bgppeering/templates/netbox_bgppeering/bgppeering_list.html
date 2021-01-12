@@ -19,7 +19,7 @@
                     <div class="form-group">
                         {% if field.name == "q" %}
                         <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search"
+                            <input type="text" name="q" class="form-control" placeholder="{{ field.label }}"
                                 {% if request.GET.q %}value="{{ request.GET.q }}" {% endif %} />
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">
