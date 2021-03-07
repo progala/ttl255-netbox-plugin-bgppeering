@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from dcim.models import Site, Device
 from ipam.api.nested_serializers import (
     NestedIPAddressSerializer,
 )
