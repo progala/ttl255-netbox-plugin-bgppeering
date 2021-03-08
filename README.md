@@ -17,14 +17,27 @@ This plugin is currently undergoing development and should not be used in produc
 | bgppeering-view-init | Adds web UI page for displaying details of single object | [^Part 2] |
 | bgppeering-list-view-init | Adds web UI page for displaying list of objects | [^Part 2] |
 | bgppeering-create-view-init | Adds web UI page with form for creating objects | [^Part 2] |
+| bgppeering-list-search | Adds search/filter side form | [^Part 3] |
+| small-improvements | Improves functionality and look of the plugin | [^Part 4] |
+| adding-permissions | Adds object permissions | [^Part 5] |
+| adding-api | Adds API endpoints | [^Part 5] |
 
 \
-Follow the below links to the tutorial if you'd like to see in details how I built this plugin:
+Follow the below links to the tutorial if you'd like to see detailed walkthrough on how I built this plugin:
 
 [Developing NetBox Plugin - Part 1 - Setup and initial build](https://ttl255.com/developing-netbox-plugin-part-1-setup-and-initial-build/)
 
 [Developing NetBox Plugin - Part 2 - Adding web UI pages](https://ttl255.com/developing-netbox-plugin-part-2-adding-ui-pages/)
 
+[Developing NetBox Plugin - Part 3 - Adding search panel](https://ttl255.com/developing-netbox-plugin-part-3-adding-search/)
+
+[Developing NetBox Plugin - Part 4 - Small improvements](https://ttl255.com/developing-netbox-plugin-part-4-small-improvements/)
+
+[Developing NetBox Plugin - Part 5 - Permissions and API](https://ttl255.com/developing-netbox-plugin-part-5-permissions-and-api/)
+
 
 [^Part 1]: https://ttl255.com/developing-netbox-plugin-part-1-setup-and-initial-build/
 [^Part 2]: https://ttl255.com/developing-netbox-plugin-part-2-adding-ui-pages/
+[^Part 3]: https://ttl255.com/developing-netbox-plugin-part-3-adding-search/
+[^Part 4]: https://ttl255.com/developing-netbox-plugin-part-4-small-improvements/
+[^Part 5]: https://ttl255.com/developing-netbox-plugin-part-5-permissions-and-api/
